@@ -26,7 +26,7 @@ class alloc {
         return (((bytes) + __ALIGN - 1) & ~(__ALIGN - 1));
     }
     // 16个free-list
-    static obj *volatile free_list[__NFREELISTS];
+    static obj *free_list[__NFREELISTS];
     // 根据区块大小，决定使用第n号free-list。n从0算起
     static size_t FREELIST_INDEX(size_t bytes) {
         return (((bytes) + __ALIGN - 1) / __ALIGN - 1);
